@@ -9,10 +9,11 @@ def obter_palpite():
             print("Entrada inválida! Por favor, insira um número inteiro.")
 
 def jogo_adivinhacao():
-
+    
     print("Bem-vindo ao Jogo da Adivinhação!")
     print("Eu pensei em um número entre 1 e 100. Você consegue adivinhar?")
-
+    print("Dica: Direi se você está perto ou longe do número correto.")
+    
     numero_secreto = random.randint(1, 100)
     tentativas = 0
     acertou = False
@@ -20,11 +21,18 @@ def jogo_adivinhacao():
     while not acertou:
         palpite = obter_palpite()
         tentativas += 1
+        diferenca = abs(numero_secreto - palpite)
         
         if palpite < numero_secreto:
-            print("Muito baixo! Tente novamente.")
+            if diferenca <= 10:
+                print("Muito baixo, mas você está quente! Tente novamente.")
+            else:
+                print("Muito baixo, você está frio. Tente novamente.")
         elif palpite > numero_secreto:
-            print("Muito alto! Tente novamente.")
+            if diferenca <= 10:
+                print("Muito alto, mas você está quente! Tente novamente.")
+            else:
+                print("Muito alto, você está frio. Tente novamente.")
         else:
             print(f"🎉 Parabéns! Você acertou o número {numero_secreto} em {tentativas} tentativa(s)!")
             acertou = True
