@@ -1,7 +1,5 @@
 def obter_palpite():
-    """
-    Solicita e retorna um palpite válido do jogador.
-    """
+  
     while True:
         try:
             return int(input("Digite seu palpite (entre 1 e 100): "))
