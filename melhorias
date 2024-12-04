@@ -1,0 +1,21 @@
+while not acertou:
+    try:
+        palpite = int(input("Digite seu palpite: "))
+        tentativas += 1
+        diferenca = abs(numero_secreto - palpite)
+        
+        if palpite < numero_secreto:
+            if diferenca <= 10:
+                print("Muito baixo, mas você está quente! Tente novamente.")
+            else:
+                print("Muito baixo, você está frio. Tente novamente.")
+        elif palpite > numero_secreto:
+            if diferenca <= 10:
+                print("Muito alto, mas você está quente! Tente novamente.")
+            else:
+                print("Muito alto, você está frio. Tente novamente.")
+        else:
+            print(f"🎉 Parabéns! Você acertou o número {numero_secreto} em {tentativas} tentativa(s)!")
+            acertou = True
+    except ValueError:
+        print("Por favor, digite um número válido.")
